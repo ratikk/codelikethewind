@@ -47,9 +47,9 @@ pipeline {
         script {
 
           // Add steps here
-          openshift.withCluster('demo1') { 
+          openshift.withCluster('ocdemo') { 
             openshift.withCredentials('openshift') {
-                  openshift.withProject("swagatam-kundu-dev") {
+                  openshift.withProject("ratikanta-nanda-dev") {
   
                def buildConfigExists = openshift.selector("bc", "codelikethewind-ext").exists() 
     
@@ -69,9 +69,9 @@ pipeline {
         echo 'Deploying....'
         script {
 
-         openshift.withCluster('demo1') { 
+         openshift.withCluster('ocdemo') { 
           openshift.withCredentials('openshift') {
-            openshift.withProject("swagatam-kundu-dev") { 
+            openshift.withProject("ratikanta-nanda-dev") { 
                  def deployment = openshift.selector("dc", "codelikethewind-ext") 
     
                   if(!deployment.exists()){ 
