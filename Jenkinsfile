@@ -18,7 +18,7 @@ pipeline {
       
 
     stage('Build') {
-      echo 'BUILD'
+      echo 'BUILDING'
       steps {
         echo 'Building..'
         
