@@ -23,7 +23,7 @@ pipeline {
         
         sh 'mvn clean package'
          
-        sh 'jfrog config show >> /home/ec2-user/tmp/jfrog.out'
+        sh 'echo `jfrog config show`' 
         
           sh 'jfrog rt u "/var/lib/jenkins/workspace/openshift/target/simple-servlet-0.0.1-SNAPSHOT.war" "test-maven-oc/simple-servlet-0.0.1-SNAPSHOT-$BUILD_NUMBER.war" --recursive=false'
         
