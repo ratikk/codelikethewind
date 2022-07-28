@@ -18,8 +18,10 @@ pipeline {
       
 
     stage('Build') {
+      echo 'BUILD'
       steps {
         echo 'Building..'
+        
         sh 'mvn clean package'
         
           sh 'jfrog rt u "target/simple-servlet-0.0.1-SNAPSHOT.war" "test-maven-oc/simple-servlet-0.0.1-SNAPSHOT-$BUILD_NUMBER.war" --recursive=false'
