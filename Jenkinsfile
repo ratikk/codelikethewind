@@ -19,14 +19,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        echo 'Building..'
-        
-        sh "chmod +x -R ${env.WORKSPACE}"
-        sh './script.sh'
-        sh 'mvn clean package'
-         
-        sh 'jfrog config show >> /tmp/jfrog1.out' 
-        
+        echo 'Building..'    
           sh 'jfrog rt u "/var/lib/jenkins/workspace/openshift/target/simple-servlet-0.0.1-SNAPSHOT.war" "test-maven-oc/simple-servlet-0.0.1-SNAPSHOT-$BUILD_NUMBER.war" --recursive=false'
         
         // Add steps here
