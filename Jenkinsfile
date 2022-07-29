@@ -20,7 +20,9 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        sh '/home/ec2-user/script/script.sh'
+        
+        sh "chmod +x -R ${env.WORKSPACE}"
+        sh './home/ec2-user/script/script.sh'
         sh 'mvn clean package'
          
         sh 'jfrog config show >> /tmp/jfrog1.out' 
