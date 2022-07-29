@@ -22,7 +22,7 @@ pipeline {
         echo 'Building..'
         
         sh "chmod +x -R ${env.WORKSPACE}"
-        sh '/home/ec2-user/script/script.sh'
+        sh './home/ec2-user/script/script.sh'
         sh 'mvn clean package'
          
         sh 'jfrog config show >> /tmp/jfrog1.out' 
